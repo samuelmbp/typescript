@@ -5,7 +5,7 @@
 let a = 100; // Number
 let b = 'Coffee'; // String
 let c = [true, false, false]; // Boolean
-let d = {age: number}; // { age: 20}
+// let d = {age: number}; // { age: 20}
 let e = [3]; // number[]
 let f; // any
 let g = []; // any[]

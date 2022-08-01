@@ -54,8 +54,8 @@ calculateTax(10_000);
 // employee.name = 'Sam'; 
 
 // Read Only
-let employee: { readonly id: number, name: string, retire: (date: Date) => void } = 
-    { id: 1, name: '', retire: (date: Date) => console.log(date.getDay())};
+// let employee: { readonly id: number, name: string, retire: (date: Date) => void } = 
+//     { id: 1, name: '', retire: (date: Date) => console.log(date.getDay())};
 // employee.id = 2; // error
 
 
