@@ -29,9 +29,9 @@ user.push(1); // can add an extra value in this way (as it is an array) -> not t
 /** 'Enums' -> related constants */
 // =============================
 // enum Size { Small, Medium, Large };
-const enum Size { Small = 1, Medium, Large }; // Using const cleans the compiled code e.g. dist/index.js
-const mySize: Size = Size.Small
-console.log(mySize); // 1
+// const enum Size { Small = 1, Medium, Large }; // Using const cleans the compiled code e.g. dist/index.js
+// const mySize: Size = Size.Small
+// console.log(mySize); // 1
 
 
 // ====================================

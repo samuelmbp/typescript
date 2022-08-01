@@ -24,3 +24,48 @@ function kgToLbs(weight: number | string): number {
 
 kgToLbs(10);
 kgToLbs('10kg');
+
+// ===============================
+/** Intersection Types */
+// ===============================
+// let weight: number & string;
+type Draggable = {
+    drag: () => void
+}
+
+type Resizable = {
+    resize: () => void
+}
+
+type UIWidget = Draggable & Resizable;
+
+// Must have both: draggable and resizable
+let textBox: UIWidget = {
+    drag: () => {},
+    resize: () => {}
+}
+
+// =====================================================
+/** Literal Types -> limit the number / string etc... */
+// =====================================================
+// =====================================================
+type Quantity = 50 | 100; // alias number
+let quantity: Quantity = 100
+
+type Size = 'cm' | 'inch' // alias string
+let size: Size = 'cm';
+
+
+// =====================================================
+/** Nullable Types */
+// =====================================================
+
+function greet(name:string | null | undefined) { // Allow
+    if (name)
+        console.log(name.toUpperCase())
+    else 
+        console.log('Hola!');
+}
+
+greet(null);
+
