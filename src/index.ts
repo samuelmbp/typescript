@@ -22,8 +22,8 @@ let level: string;
 // =============================
 /** 'Tuples' -> Keep to two values for code readability */
 // =============================
-let user: [number, string] = [10, 'Samuel'];
-user.push(1); // can add an extra value in this way (as it is an array) -> not the best.
+// let user: [number, string] = [10, 'Samuel'];
+// user.push(1); // can add an extra value in this way (as it is an array) -> not the best.
 
 // =============================
 /** 'Enums' -> related constants */
