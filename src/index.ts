@@ -6,9 +6,9 @@ let level: string;
 // =============================
 /** 'Any' type */
 // =============================
-function render(document: any) {
-    console.log(document)
-}
+// function render(document: any) {
+//     console.log(document)
+// }
 
 // =============================
 /** 'Arrays' */
