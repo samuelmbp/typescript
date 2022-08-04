@@ -13,4 +13,4 @@
 
 
 ## Shortcuts
-- E.g. ```tsc & node/dist index.js``` -> Compile & Run
+- E.g. ```tsc && node/dist index.js``` -> Compile & Run
