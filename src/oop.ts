@@ -56,20 +56,20 @@ seats.A2 = 'Ilaria';
 /** Static Members */
 // =======================================================
 class Ride {
-    // Global Usage
-	private static _activeRides: number = 0; // Can be used only by the 'Ride Class' -> e.g. (Ride._activeRides)
+	// Global Usage
+	private static _activeRides: number = 0; // Can be used only by the 'Ride class' -> e.g. (Ride._activeRides)
 
 	start() {
 		Ride._activeRides++;
 	}
-    
+
 	stop() {
 		Ride._activeRides--;
 	}
 
-     static get activeRides() {
-        return Ride._activeRides;
-    }
+	static get activeRides() {
+		return Ride._activeRides;
+	}
 }
 
 // Ride.activeRides = 10; // Read only -> Cannot be modified
@@ -79,7 +79,88 @@ ride1.start();
 const ride2 = new Ride();
 ride2.start();
 
-console.log(`First Ride: ${Ride.activeRides}`); // 2
+// console.log(`First Ride: ${Ride.activeRides}`); // 2
+
+// =======================================================
+/** Inheritance */
+// =======================================================
+class Person {
+    constructor(public firstName: string, public lastName: string) {}
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    walk() {
+        console.log('Walking');;
+        
+    }
+}
+
+class Student extends Person {
+    constructor(public studentId: number, firstName: string,  lastName: string) {
+        super(firstName, lastName);
+    }
+
+    takeTest() {
+        console.log('Taking a test');
+        
+    }
+}
+
+// =======================================
+/** Method Overriding */
+// =======================================
+class Teacher extends Person {
+    override get fullName() {
+        return `Professor: ${super.fullName}`;
+    }
+}
+
+const teacher = new Teacher('John', 'Smith');
+// console.log(teacher.fullName);
+
+class Principle extends Person {
+	override get fullName() {
+        return `Principal: ${super.fullName}`;
+    }
+}
+
+// =================================
+/** Polymorphism -> Many Forms */
+// =================================
+function printNames(people: Person[]) {
+	for (let person of people)
+		console.log(person.fullName);	
+}
+
+printNames([
+	new Student(1, 'John', 'Smith'),
+	new  Teacher('Samuel', 'Raducan'),
+	new Principle('Emma', 'Jo')
+])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
