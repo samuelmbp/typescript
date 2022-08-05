@@ -141,17 +141,77 @@ printNames([
 ])
 
 
+// =========================================================
+/** Private vs Protected Members */
+/**
+ * 1. Private -> Can be accessed only inside the class that 
+is defined but cannot be inherited (MUCH USED)
+ * 2. Protected -> Same as private but can be inherited and used by a child class
+ */
+// =========================================================
 
 
+// ==========================================================
+/** Abstract Classes and Methods */
+/** IMPORTANT
+ * 1. Abstract methods can only exist inside abstract classes
+ */
+// ==========================================================
+
+abstract class Shape {
+	constructor(public color: string) {}
+
+	abstract render (): void;
+}
 
 
+class Circle extends Shape {
+	constructor(public radius: number, color: string){
+		super(color);
+	}
+
+	override render(): void {
+		console.log('Rendering a circle');
+	}
+}
+
+// ==========================================================
+/** Interfaces -> Defines the shape of the objects */
+/** IMPORTANT
+ * - an interface is a contract 
+ * - cannot have implementation or logic
+ * - the classes that extend it's functionality must insert all the properties and methods.
+ */
+// ==========================================================
+
+// abstract class Calendar {
+// 	constructor(public name: string){}
+
+// 	abstract addEvent(): void;
+// 	abstract removeEvent(): void;
+// }
+
+interface Calendar {
+	name: string,
+	addEvent(): void;
+	removeEvent(): void;
+}
+
+interface CloudCalendar extends Calendar {
+	sync(): void;
+}
 
 
-
-
-
-
-
+class GoogleCalendar implements Calendar {
+	constructor(public name: string) {}
+	
+	addEvent(): void {
+		throw new Error("Method not implemented.");
+	}
+	removeEvent(): void {
+		throw new Error("Method not implemented.");
+	}
+}
 
 
 
