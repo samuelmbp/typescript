@@ -85,36 +85,34 @@ ride2.start();
 /** Inheritance */
 // =======================================================
 class Person {
-    constructor(public firstName: string, public lastName: string) {}
+	constructor(public firstName: string, public lastName: string) {}
 
-    get fullName() {
-        return `${this.firstName} ${this.lastName}`;
-    }
+	get fullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
 
-    walk() {
-        console.log('Walking');;
-        
-    }
+	walk() {
+		console.log('Walking');
+	}
 }
 
 class Student extends Person {
-    constructor(public studentId: number, firstName: string,  lastName: string) {
-        super(firstName, lastName);
-    }
+	constructor(public studentId: number, firstName: string, lastName: string) {
+		super(firstName, lastName);
+	}
 
-    takeTest() {
-        console.log('Taking a test');
-        
-    }
+	takeTest() {
+		console.log('Taking a test');
+	}
 }
 
 // =======================================
 /** Method Overriding */
 // =======================================
 class Teacher extends Person {
-    override get fullName() {
-        return `Professor: ${super.fullName}`;
-    }
+	override get fullName() {
+		return `Professor: ${super.fullName}`;
+	}
 }
 
 const teacher = new Teacher('John', 'Smith');
@@ -122,24 +120,22 @@ const teacher = new Teacher('John', 'Smith');
 
 class Principle extends Person {
 	override get fullName() {
-        return `Principal: ${super.fullName}`;
-    }
+		return `Principal: ${super.fullName}`;
+	}
 }
 
 // =================================
 /** Polymorphism -> Many Forms */
 // =================================
 function printNames(people: Person[]) {
-	for (let person of people)
-		console.log(person.fullName);	
+	for (let person of people) console.log(person.fullName);
 }
 
 printNames([
 	new Student(1, 'John', 'Smith'),
-	new  Teacher('Samuel', 'Raducan'),
-	new Principle('Emma', 'Jo')
-])
-
+	new Teacher('Samuel', 'Raducan'),
+	new Principle('Emma', 'Jo'),
+]);
 
 // =========================================================
 /** Private vs Protected Members */
@@ -149,7 +145,6 @@ is defined but cannot be inherited (MUCH USED)
  * 2. Protected -> Same as private but can be inherited and used by a child class
  */
 // =========================================================
-
 
 // ==========================================================
 /** Abstract Classes and Methods */
@@ -161,12 +156,11 @@ is defined but cannot be inherited (MUCH USED)
 abstract class Shape {
 	constructor(public color: string) {}
 
-	abstract render (): void;
+	abstract render(): void;
 }
 
-
 class Circle extends Shape {
-	constructor(public radius: number, color: string){
+	constructor(public radius: number, color: string) {
 		super(color);
 	}
 
@@ -178,7 +172,7 @@ class Circle extends Shape {
 // ==========================================================
 /** Interfaces -> Defines the shape of the objects */
 /** IMPORTANT
- * - an interface is a contract 
+ * - an interface is a contract
  * - cannot have implementation or logic
  * - the classes that extend it's functionality must insert all the properties and methods.
  */
@@ -192,7 +186,8 @@ class Circle extends Shape {
 // }
 
 interface Calendar {
-	name: string,
+	name: string;
+	addEvent(): void;
 	addEvent(): void;
 	removeEvent(): void;
 }
@@ -201,31 +196,13 @@ interface CloudCalendar extends Calendar {
 	sync(): void;
 }
 
-
 class GoogleCalendar implements Calendar {
 	constructor(public name: string) {}
-	
+
 	addEvent(): void {
-		throw new Error("Method not implemented.");
+		throw new Error('Method not implemented.');
 	}
 	removeEvent(): void {
-		throw new Error("Method not implemented.");
+		throw new Error('Method not implemented.');
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
