@@ -170,7 +170,7 @@ class Circle extends Shape {
 }
 
 // ==========================================================
-/** Interfaces -> Defines the shape of the objects */
+/** ndex -> Defines the shape of the objects */
 /** IMPORTANT
  * - an interface is a contract
  * - cannot have implementation or logic
