@@ -28,7 +28,7 @@ type ComponentOptions = {
     selector: string
 }
 
-// Decorator Factory
+// // Decorator Factory
 function Component(options: ComponentOptions) {
 	return (constructor: Function) => {
 		console.log('Component decorator called.');
@@ -40,8 +40,61 @@ function Component(options: ComponentOptions) {
 	};
 }
 
+// @Component({ selector: '#my-profile'})
+// class ProfileComponent {}
+
+// ====================================
+/** Decorators Composition */
+// ====================================
+function Pipe(constructor: Function) {
+    console.log('Pipe decorator called.');
+    constructor.prototype.pipe = true;
+}
+
 @Component({ selector: '#my-profile'})
+@Pipe
 class ProfileComponent {}
+
+// ====================================
+/** Method Decorators */
+// ====================================
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+    const original = descriptor.value as Function;
+    // ...args (accepts multiple arguments)
+    descriptor.value = function(...args: any) {
+        console.log('Before');
+        original.call(this, ...args);
+        console.log('After');
+        
+    }
+}
+class PersonDecorator {
+    @Log
+    say(message: string) {
+        console.log(`Person says ${message}`);   
+    }
+}
+
+
+const person = new PersonDecorator();
+person.say('Hello');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
