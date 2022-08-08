@@ -1,3 +1,5 @@
+
+/** Describing Types using JSDoc */
 /**
  * Calculates income tax
  * @param {number} income - net salary after expenses
