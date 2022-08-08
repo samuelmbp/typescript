@@ -153,21 +153,21 @@ is defined but cannot be inherited (MUCH USED)
  */
 // ==========================================================
 
-abstract class Shape {
-	constructor(public color: string) {}
+// abstract class Shape {
+// 	constructor(public color: string) {}
 
-	abstract render(): void;
-}
+// 	abstract render(): void;
+// }
 
-class Circle extends Shape {
-	constructor(public radius: number, color: string) {
-		super(color);
-	}
+// class Circle extends Shape {
+// 	constructor(public radius: number, color: string) {
+// 		super(color);
+// 	}
 
-	override render(): void {
-		console.log('Rendering a circle');
-	}
-}
+// 	override render(): void {
+// 		console.log('Rendering a circle');
+// 	}
+// }
 
 // ==========================================================
 /** ndex -> Defines the shape of the objects */

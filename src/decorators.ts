@@ -58,53 +58,53 @@ class ProfileComponent {}
 // ====================================
 /** Method Decorators */
 // ====================================
-function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-	const original = descriptor.value as Function;
-	// ...args (accepts multiple arguments)
-	descriptor.value = function (...args: any) {
-		console.log('Before');
-		original.call(this, ...args);
-		console.log('After');
-	};
-}
-class PersonDecorator {
-	@Log
-	say(message: string) {
-		console.log(`Person says ${message}`);
-	}
-}
+// function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+// 	const original = descriptor.value as Function;
+// 	// ...args (accepts multiple arguments)
+// 	descriptor.value = function (...args: any) {
+// 		console.log('Before');
+// 		original.call(this, ...args);
+// 		console.log('After');
+// 	};
+// }
+// class PersonDecorator {
+// 	@Log
+// 	say(message: string) {
+// 		console.log(`Person says ${message}`);
+// 	}
+// }
 
-const person = new PersonDecorator();
-person.say('Hello');
+// const person = new PersonDecorator();
+// person.say('Hello');
 
 // ====================================================
 /** Accessor(getters & setters) Decorators - Title */
 // ====================================================
-function Capitalize(
-	target: any,
-	methodName: string,
-	descriptor: PropertyDescriptor
-) {
-	const original = descriptor.get;
-	// Redefined: descriptor.get
-	descriptor.get = function () {
-		const result = original?.call(this);
-		return typeof result === 'string' ? result.toUpperCase() : result;
-	};
-}
-class Player {
-	constructor(public firstName: string, public lastName: string) {}
+// function Capitalize(
+// 	target: any,
+// 	methodName: string,
+// 	descriptor: PropertyDescriptor
+// ) {
+// 	const original = descriptor.get;
+// 	// Redefined: descriptor.get
+// 	descriptor.get = function () {
+// 		const result = original?.call(this);
+// 		return typeof result === 'string' ? result.toUpperCase() : result;
+// 	};
+// }
+// class Player {
+// 	constructor(public firstName: string, public lastName: string) {}
 
-	@Capitalize
-	get fullName() {
-		// return 0; ✅
-		// return null; ✅
-		return `${this.firstName} ${this.lastName}`;
-	}
-}
+// 	@Capitalize
+// 	get fullName() {
+// 		// return 0; ✅
+// 		// return null; ✅
+// 		return `${this.firstName} ${this.lastName}`;
+// 	}
+// }
 
-const player = new Player('samuel', 'raducan');
-console.log(player.fullName);
+// const player = new Player('samuel', 'raducan');
+// console.log(player.fullName);
 
 // ======================================================
 /** Property Decorators -> Enhance existing properties */
@@ -144,24 +144,24 @@ console.log(user.password);
 // ===========================================
 /** Parameter Decorators -> Not used often */
 // ===========================================
-type WatchParameter = {
-    methodName: string;
-    parameterIndex: number;
-}
+// type WatchParameter = {
+//     methodName: string;
+//     parameterIndex: number;
+// }
 
-const watchedParameters: WatchParameter[] = [];
+// const watchedParameters: WatchParameter[] = [];
 
-function Watch(target: any, methodName: string, parameterIndex: number) {
-    watchedParameters.push({
-        methodName,
-        parameterIndex
-    });
-}
-class Vehicle {
-    move(@Watch speed: number) {}
-}
+// function Watch(target: any, methodName: string, parameterIndex: number) {
+//     watchedParameters.push({
+//         methodName,
+//         parameterIndex
+//     });
+// }
+// class Vehicle {
+//     move(@Watch speed: number) {}
+// }
 
-console.log(watchedParameters);
+// console.log(watchedParameters);
 
 
 
