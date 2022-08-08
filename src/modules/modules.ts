@@ -7,11 +7,11 @@ console.log(circle.radius);
 // =================================
 /** Default Exports */
 // =================================
-import Shop, { Format } from '../modules/storage';
+// import Shop, { Format } from '../modules/storage';
 
 // =================================
 /** Wildcard Imports */
 // =================================
-import * as Shapes from './shapes';
+// import * as Shapes from './shapes';
 
-const square = new Shapes.Square('square');
+// const square = new Shapes.Square('square');

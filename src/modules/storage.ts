@@ -6,5 +6,5 @@ export default class Shop {}
 
 export enum Format { Raw, Compressed };
 
-class Compressor {}
-class Encrypt {}
+// class Compressor {}
+// class Encrypt {}
